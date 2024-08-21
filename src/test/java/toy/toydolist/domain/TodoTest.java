@@ -58,6 +58,26 @@ class TodoTest {
         assertThat(todo.getContents()).isEqualTo("밥 먹기");
         assertThat(todo.getIsOverdue()).isEqualTo(IsOverdue.CURRENT);
     }
+    @Test
+    public void Todo_삭제(){
+        //given
+        Todo todo = new Todo.TodoBuilder()
+                .setContents("밥 먹기")
+                .setDeadline(LocalDateTime.of(2025, 8, 23, 1,50))
+                .build();
+        User user = em.find(User.class, userId);
+        todo.addTodo(user);
+        em.persist(todo);
+
+        //when
+        todo.removeTodo();
+
+        Todo findTodo = em.find(Todo.class,todo.getId());
+
+        //then
+        assertThat(findTodo.isRemoved()).isTrue();
+
+    }
 
     @Test
     public void 내용_변경(){

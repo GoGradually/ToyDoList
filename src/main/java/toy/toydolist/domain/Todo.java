@@ -32,7 +32,7 @@ public class Todo {
     @Enumerated(EnumType.STRING)
     private IsOverdue isOverdue;
 
-    private boolean isRemoved;
+    private boolean isRemoved = false;
 
     @Getter
     public static class TodoBuilder{
