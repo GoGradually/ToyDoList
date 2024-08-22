@@ -63,22 +63,19 @@ public class Todo {
         isRemoved = false;
         changeOverDue();
     }
+
+    /* 변경 가능한 값들 변경 메소드 */
+
     public void setDeadline(LocalDateTime time){
         deadline = time;
         changeOverDue();
     }
 
-    public void changeIsComplete(IsComplete isComplete){
+    public void setIsComplete(IsComplete isComplete){
         this.isComplete = isComplete;
     }
 
-    private void changeOverDue(){
-        if (deadline.isAfter(LocalDateTime.now())){
-            isOverdue = IsOverdue.CURRENT;
-        }else{
-            isOverdue = IsOverdue.OVERDUE;
-        }
-    }
+
 
     public void addTodo(User user){
         this.user = user;
@@ -86,5 +83,15 @@ public class Todo {
     }
     public void removeTodo(){
         isRemoved = true;
+    }
+
+
+    /* 변경 자동화 메소드 */
+    private void changeOverDue(){
+        if (deadline.isAfter(LocalDateTime.now())){
+            isOverdue = IsOverdue.CURRENT;
+        }else{
+            isOverdue = IsOverdue.OVERDUE;
+        }
     }
 }

@@ -150,7 +150,7 @@ class TodoTest {
         em.persist(todo);
 
         //when
-        todo.changeIsComplete(COMPLETE);
+        todo.setIsComplete(COMPLETE);
 
         //then
         assertThat(todo.getIsComplete()).isEqualTo(COMPLETE);
@@ -167,11 +167,11 @@ class TodoTest {
         User user = em.find(User.class, userId);
         todo.addTodo(user);
         em.persist(todo);
-        todo.changeIsComplete(COMPLETE);
+        todo.setIsComplete(COMPLETE);
 
         //when
 
-        todo.changeIsComplete(INCOMPLETE);
+        todo.setIsComplete(INCOMPLETE);
         //then
         assertThat(todo.getIsComplete()).isEqualTo(INCOMPLETE);
 

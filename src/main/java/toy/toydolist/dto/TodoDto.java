@@ -1,6 +1,7 @@
 package toy.toydolist.dto;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 import toy.toydolist.domain.Todo;
 import toy.toydolist.domain.User;
@@ -9,6 +10,7 @@ import toy.toydolist.state.IsOverdue;
 
 import java.time.LocalDateTime;
 
+@Data
 public class TodoDto {
     private Long id;
 

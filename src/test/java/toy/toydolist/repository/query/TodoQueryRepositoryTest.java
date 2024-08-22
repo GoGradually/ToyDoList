@@ -64,8 +64,6 @@ class TodoQueryRepositoryTest {
         //given
         User user = em.find(User.class,userId);
         LocalDateTime startOfMonth = YearMonth.of(2024, 7).atDay(1).atStartOfDay();
-
-        // 해당 월의 마지막일 (다음 달 1일 0시 0분 0초에서 1초 뺀 시점)
         LocalDateTime endOfMonth = YearMonth.of(2024, 7).plusMonths(1).atDay(1).atStartOfDay().minusSeconds(1);
         //when
         List<Todo> todos = todoQueryRepository.searchByMonth(user, startOfMonth, endOfMonth);
@@ -87,8 +85,6 @@ class TodoQueryRepositoryTest {
         //given
         User user = em.find(User.class,userId);
         LocalDateTime startOfMonth = YearMonth.of(2024, 6).atDay(1).atStartOfDay();
-
-        // 해당 월의 마지막일 (다음 달 1일 0시 0분 0초에서 1초 뺀 시점)
         LocalDateTime endOfMonth = YearMonth.of(2024, 6).plusMonths(1).atDay(1).atStartOfDay().minusSeconds(1);
         //when
         List<Todo> todos = todoQueryRepository.searchByMonth(user, startOfMonth, endOfMonth);
