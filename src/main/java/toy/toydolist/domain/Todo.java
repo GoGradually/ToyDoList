@@ -85,7 +85,6 @@ public class Todo {
         user.getTodoList().add(this);
     }
     public void removeTodo(){
-        user = null;
         isRemoved = true;
     }
 }

@@ -14,11 +14,9 @@ public class UserDto {
     @Length(min = 6, max = 20)
     private String username;
 
-    private List<TodoDto> todoList;
 
     public UserDto(User user){
         id = user.getId();
         username = user.getUsername();
-        todoList = user.getTodoList().stream().map(TodoDto::new).toList();
     }
 }
